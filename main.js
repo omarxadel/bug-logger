@@ -1,6 +1,7 @@
 const path = require('path')
 const url = require('url')
 const { app, BrowserWindow } = require('electron')
+const {autoUpdater} = require('electron-updater')
 
 let mainWindow
 
@@ -49,14 +50,14 @@ function createMainWindow() {
 
 		// Open devtools if dev
 		if (isDev) {
-			const {
-				default: installExtension,
-				REACT_DEVELOPER_TOOLS,
-			} = require('electron-devtools-installer')
+			// const {
+			// 	default: installExtension,
+			// 	REACT_DEVELOPER_TOOLS,
+			// } = require('electron-devtools-installer')
 
-			installExtension(REACT_DEVELOPER_TOOLS).catch((err) =>
-				console.log('Error loading React DevTools: ', err)
-			)
+			// installExtension(REACT_DEVELOPER_TOOLS).catch((err) =>
+			// 	console.log('Error loading React DevTools: ', err)
+			// )
 			mainWindow.webContents.openDevTools()
 		}
 	})
@@ -80,3 +81,7 @@ app.on('activate', () => {
 
 // Stop error
 app.allowRendererProcessReuse = true
+
+app.on('ready', function(){
+	autoUpdater.checkForUpdatesAndNotify();
+})
