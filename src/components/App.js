@@ -5,7 +5,6 @@ import Table from 'react-bootstrap/Table'
 import LogItem from './LogItem'
 import AddLogItem from './AddLogItem'
 
-
 const App = () => {
 	const [logs, setLogs] = useState([
 		{
@@ -30,9 +29,16 @@ const App = () => {
 			created: new Date().toString()
 		}
 	])
+	
+	function addLog(item) {
+		item._id = Math.floor(Math.random() * 90000) + 10000
+		item.created = new Date().toString()
+		setLogs([...logs, item])
+	}
+
 	return (
 		<Container>
-			<AddLogItem />
+			<AddLogItem addLog={ addLog }/>
 			<Table >
 				<thead>
 					<tr>
