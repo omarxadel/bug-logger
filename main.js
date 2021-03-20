@@ -1,6 +1,6 @@
 const path = require('path')
 const url = require('url')
-const { app, BrowserWindow, ipcMain, Menu, nativeImage } = require('electron')
+const { app, BrowserWindow, ipcMain, Menu } = require('electron')
 const {autoUpdater} = require('electron-updater')
 const Log = require('./models/Log')
 const connectDB = require('./config/db')
@@ -24,7 +24,7 @@ function createMainWindow() {
 		width: 1100,
 		height: 800,
 		show: false,
-		icon: nativeImage.createFromPath(`${__dirname}/assets/icon.png`,),
+		icon: `${__dirname}/assets/icon.png`,
 		webPreferences: {
 			nodeIntegration: true,
 		},
