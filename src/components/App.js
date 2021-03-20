@@ -30,17 +30,11 @@ const App = () => {
 			showAlert('Please complete log data!', 'danger')
 			return false
 		}
-		// item._id = Math.floor(Math.random() * 90000) + 10000
-		// item.created = new Date().toString()
-		// setLogs([...logs, item])
-
 		ipcRenderer.send('logs:add', item)
-
 		showAlert('Log added successfully!')
 	}
 
 	function deleteLog(_id){
-		// setLogs(logs.filter((item) => item._id !== _id))
 		ipcRenderer.send('logs:delete', _id)
 		showAlert('Log deleted successfully!')
 	}
