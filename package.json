@@ -1,7 +1,7 @@
 {
   "name": "buglogger",
   "productName": "BugLogger",
-  "version": "1.0.0",
+  "version": "0.9.0",
   "description": "Bug tracker for teams.",
   "author": "Omar Adel",
   "license": "MIT",
