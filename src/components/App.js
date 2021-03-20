@@ -56,6 +56,7 @@ const App = () => {
 
 	return (
 		<Container>
+			<h1 className='mt-5'>Log a bug!</h1>
 			<AddLogItem addLog={ addLog }/>
 			{alert.show && <Alert variant={alert.variant}>{ alert.message }</Alert>}
 			<Table >
