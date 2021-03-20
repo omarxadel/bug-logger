@@ -43,7 +43,7 @@ const AddLogItem = ({addLog}) => {
                     </Row>
                     <Row className='my-3'>
                         <Col>
-                            <Button type='submit' variant='secondary' block>
+                            <Button type='submit' variant='primary' block>
                                 Add Log
                             </Button>
                         </Col>
