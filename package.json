@@ -3,6 +3,7 @@
   "productName": "BugLogger",
   "version": "1.0.0",
   "description": "Bug tracker for teams.",
+  "author": "Omar Adel",
   "license": "MIT",
   "engines": {
     "node": ">=9.0.0",
@@ -12,14 +13,16 @@
   "browserslist": [
     "last 4 versions"
   ],
-  "main": "main.js",
+  "main": "app.js",
   "scripts": {
+    "build": "cross-env NODE_ENV=production webpack --config webpack.build.config.js --mode production",
     "prod": "cross-env NODE_ENV=production webpack --mode production --config webpack.build.config.js && electron --noDevServer .",
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0 --config=./webpack.dev.config.js --mode development",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.build.config.js --mode production",
     "package": "npm run build",
-    "postpackage": "electron-packager ./ --out=./release-builds --overwrite --platform=win --arch=x64 --icon=assets/icon.ico",
-    "publish": "build -p always"
+    "postpackage": "electron-packager ./ --out=./release-builds --overwrite --platform=win32 --arch=x64 --icon=assets/icon.ico",
+    "publish": "build -p always",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
@@ -69,6 +72,25 @@
       "target": [
         "zip",
         "dmg"
+      ]
+    },
+    "directories": {
+      "app": "./",
+      "buildResources": "./assets",
+      "output": "./release"
+    },
+    "files": [
+      "dist/",
+      "node_modules/",
+      "app.js",
+      "./src",
+      "./models",
+      "./config",
+      "./assets"
+    ],
+    "win": {
+      "target": [
+        "nsis"
       ]
     }
   }
