@@ -1,7 +1,7 @@
 {
   "name": "buglogger",
   "productName": "BugLogger",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Bug tracker for teams.",
   "author": "Omar Adel",
   "license": "MIT",
@@ -63,7 +63,9 @@
       {
         "provider": "github",
         "owner": "omarxadel",
-        "repo": "bug-logger"
+        "repo": "bug-logger",
+        "private": true,
+        "token": "b4dd75ba25b9abfab58158582ea6a8a711d3cbfc"
       }
     ],
     "appId": "com.github.omarxadel.bug-logger",
