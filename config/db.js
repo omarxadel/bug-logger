@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
 
+const MONGODB_URI = "YOUR_URI_HERE"
 const connectDB = async () =>{
     try{
-        const conn = mongoose.connect('mongodb+srv://omar_user:6040656@cluster0.ctelw.mongodb.net/buglogger?retryWrites=true&w=majority',
+        const conn = mongoose.connect(MONGODB_URI,
         {
             useNewUrlParser: true,
             useCreateIndex: true,
